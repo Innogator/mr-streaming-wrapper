@@ -18,3 +18,5 @@ for line in sys.stdin:
 
   # Put the result into HDFS
   call(['hadoop', 'fs', '-put', filename + '.gz', '/user/dev/converted/'])
+  # Change permissions so .gz file is accessible
+  call(['hadoop', 'fs', '-chmod', '777', '/user/dev/converted/' + filename + '.gz'])
